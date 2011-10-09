@@ -1,0 +1,32 @@
+﻿<Window x:Class="MantisSubmit2.Windows.DisplayAttachmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="900"
+        Height="600"
+        Icon="../Resources/Icon.ico"
+        WindowState="Maximized"
+        FontFamily="{DynamicResource ApplicationFont}"
+        FontSize="{DynamicResource ApplicationFontSize}">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="OriginalPathTextBlock"
+                   HorizontalAlignment="Center"
+                   Text="C:\Users\Kylerrr\Pictures\From LoL.Kylerrr\Camera roll"
+                   FontSize="24"
+                   Margin="0,8" />
+        <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto"
+                      Grid.Row="1">
+            <Border x:Name="ImageWrapper"
+                    Cursor="Hand"
+                    ToolTip="Click to close"
+                    Background="Transparent">
+                <Image x:Name="ImageHost"
+                       Stretch="None" />
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -1,0 +1,203 @@
+﻿<Window x:Class="MantisSubmit2.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MantisSubmit2.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:MantisSubmit2"
+        xmlns:converters="clr-namespace:MantisSubmit2.Converters"
+        mc:Ignorable="d"
+        Title="Mantis Submit v2.0"
+        Width="756"
+        Height="756"
+        Icon="../Resources/Icon.ico"
+        FontFamily="{DynamicResource ApplicationFont}"
+        FontSize="{DynamicResource ApplicationFontSize}"
+        MinHeight="756"
+        MinWidth="756">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="ApplicationTitle"
+                   HorizontalAlignment="Left"
+                   Margin="10,0,0,0"
+                   TextWrapping="Wrap"
+                   Text="mantis submit v2.0"
+                   VerticalAlignment="Top"
+                   FontSize="36"
+                   FontFamily="Segoe WP Light" />
+
+        <StackPanel x:Name="UserInformation"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left"
+                    Margin="8,0,0,8"
+                    Orientation="Horizontal">
+            <TextBlock Text="Username:"
+                       Foreground="{DynamicResource ApplicationSubtleForeground}"
+                       Margin="4,0"
+                       VerticalAlignment="Center" />
+            <TextBlock Text="{Binding MantisService.CurrentUsername}"
+                       VerticalAlignment="Center" />
+            <Button x:Name="ChangeUserButton"
+                    Content="Change user"
+                    Margin="8,0,0,0"
+                    Click="ChangeUserButton_Click" />
+            <Button x:Name="LogoutButton"
+                    Content="Logout"
+                    Margin="8,0,0,0"
+                    Click="LogoutButton_Click" />
+        </StackPanel>
+
+        <Button x:Name="NewInstanceButton"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0,0,300,8"
+                Click="NewInstanceButton_Click"
+                Style="{DynamicResource IconButtonStyle}"
+                Content="_New Instance">
+            <local:DesignExtensions.Icon>
+                <TextBlock Text="+"
+                           Foreground="{DynamicResource DarkMantisBrush}"
+                           FontFamily="Arial Unicode MS"
+                           FontWeight="Bold"
+                           Margin="4,-10,0,-8"
+                           FontSize="24" />
+            </local:DesignExtensions.Icon>
+        </Button>
+        <!--<Button x:Name="NewInstanceButton"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0,0,300,8"
+                Click="NewInstanceButton_Click">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="New Instance" />
+                <TextBlock Text="+"
+                           Foreground="{DynamicResource DarkMantisBrush}"
+                           FontFamily="Arial Unicode MS"
+                           FontWeight="Bold"
+                           Margin="4,-10,0,-8"
+                           FontSize="24" />
+            </StackPanel>
+        </Button>-->
+        <Image x:Name="MantisLogo"
+               Source="/MantisSubmit2;component/Resources/Logo.png"
+               Width="280"
+               HorizontalAlignment="Right"
+               Margin="0,8,8,8"
+               Height="70" />
+        <Rectangle x:Name="Separator1"
+                   Grid.Row="1"
+                   Style="{StaticResource SeparatorStyle}" />
+        <Grid x:Name="FormGrid"
+              Margin="8,0,8,8"
+              Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical"
+                        Width="200"
+                        Margin="0,0,8,0">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type ComboBox}"
+                           BasedOn="{StaticResource FormComboBoxStyle}" />
+                </StackPanel.Resources>
+                <ComboBox x:Name="ProjectComboBox"
+                          local:DesignExtensions.Title="Project"
+                          SelectionChanged="ProjectComboBox_SelectionChanged"
+                          local:DesignExtensions.IsRequired="True" />
+                <ComboBox x:Name="CategoryComboBox"
+                          local:DesignExtensions.Title="Category"
+                          local:DesignExtensions.IsRequired="True" />
+                <ComboBox x:Name="PriorityComboBox"
+                          local:DesignExtensions.Title="Priority"
+                          local:DesignExtensions.IsRequired="True" />
+                <ComboBox x:Name="EtaComboBox"
+                          local:DesignExtensions.Title="ETA"
+                          local:DesignExtensions.IsRequired="True" />
+                <ComboBox x:Name="ProductVersionComboBox"
+                          local:DesignExtensions.Title="Product version" />
+                <ComboBox x:Name="TargetVersionComboBox"
+                          local:DesignExtensions.Title="Target version" />
+                <ComboBox x:Name="SeverityComboBox"
+                          local:DesignExtensions.Title="Severity"
+                          local:DesignExtensions.IsRequired="True" />
+                <ComboBox x:Name="ReproducibilityComboBox"
+                          local:DesignExtensions.Title="Reproductibility"
+                          local:DesignExtensions.IsRequired="True" />
+                <ComboBox x:Name="AssignedToComboBox"
+                          local:DesignExtensions.Title="Assigned to" />
+            </StackPanel>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBox x:Name="SummaryTextBox"
+                         local:DesignExtensions.Title="Summary"
+                         Style="{DynamicResource FormTextBoxStyle}"
+                         HorizontalScrollBarVisibility="Disabled"
+                         TextWrapping="Wrap"
+                         local:DesignExtensions.IsRequired="True"
+                         TextChanged="SummaryTextBox_TextChanged" />
+                <TextBox x:Name="DescriptionTextBox"
+                         local:DesignExtensions.Title="Description"
+                         Style="{DynamicResource FormTextBoxStyle}"
+                         Grid.Row="1"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
+                         local:DesignExtensions.IsRequired="True" />
+                <controls:CommentTextBox x:Name="CommentTextBox"
+                                         Grid.Row="2" />
+            </Grid>
+        </Grid>
+
+        <Rectangle x:Name="Separator2"
+                   Grid.Row="3"
+                   Style="{StaticResource SeparatorStyle}" />
+
+        <controls:AttachmentListBox x:Name="Attachments"
+                                    Grid.Row="4"
+                                    ParseFromClipboardFailed="Attachments_ParseFromClipboardFailed"/>
+
+        <Rectangle x:Name="Separator3"
+                   Grid.Row="5"
+                   Style="{StaticResource SeparatorStyle}" />
+        <controls:BackgroundWorkerProgress HorizontalAlignment="Left"
+                                           Margin="8,0,0,0"
+                                           Grid.Row="6"
+                                           VerticalAlignment="Center" />
+
+        <Border x:Name="SubmitButtonWrapper"
+                Grid.Row="6"
+                HorizontalAlignment="Right"
+                Margin="0,8,8,8"
+                IsEnabled="{Binding MantisService.IsLoggedIn}">
+            <Button x:Name="SubmitButton"
+                    IsEnabled="{Binding BackgroundWorkerService.IsBusy, Converter={StaticResource BooleanComplementConverter}}"
+                    Click="SubmitButton_Click"
+                    Content="_Submit"
+                    Style="{DynamicResource IconButtonStyle}">
+                <local:DesignExtensions.Icon>
+                    <Path Data="{StaticResource SubmitIcon}"
+                          Stretch="Fill"
+                          Fill="{StaticResource DarkMantisBrush}"
+                          Width="10"
+                          Height="9"
+                          Margin="5,0,0,0" />
+                </local:DesignExtensions.Icon>
+            </Button>
+        </Border>
+    </Grid>
+</Window>

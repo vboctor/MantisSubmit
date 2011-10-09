@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MantisConnect.IssueRelationship">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAEQAAABAAAAA=</HashCode>
+      <FileName>IssueRelationship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MantisConnect.ObjectRef">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACAEAAIAAAQAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ObjectRef.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MantisConnect.Project">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAEAAAgAIAAMgCAARQAAAAEAEAAAABAAQAAAgA=</HashCode>
+      <FileName>Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MantisConnect.ProjectVersion">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAACAAAAAAAgAAAAIgAEAAQABAAEAAAAAAAAAMAAAgA=</HashCode>
+      <FileName>ProjectVersion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MantisConnect.Request">
+    <Position X="0.5" Y="3.25" Width="2" />
+    <NestedTypes>
+      <Class Name="MantisConnect.Request.MyMantisConnect" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Request.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAABBQAAQEACEAAMTAEKAQAAAAwEAAAAAAAEADAQBAo=</HashCode>
+      <FileName>Request.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MantisConnect.Session">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAgAAAAAAAQAAAIGAAAAIgAACCAAIAgAAAAA=</HashCode>
+      <FileName>Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MantisConnect.User">
+    <Position X="6.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAICAkACAAAAQAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MantisConnect.Issue">
+    <Position X="4.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>NBSiACAEJQQwACUEMwAACDEAIQggCSEACglJAB4R6wA=</HashCode>
+      <FileName>Issue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

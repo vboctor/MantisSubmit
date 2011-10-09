@@ -1,0 +1,92 @@
+﻿<Window x:Class="MantisSubmit2.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:MantisSubmit2.Controls"
+        xmlns:local="clr-namespace:MantisSubmit2"
+        mc:Ignorable="d"
+        Title="Mantis Submit v2.0"
+        Height="365"
+        Width="410"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        FontFamily="{DynamicResource ApplicationFont}"
+        FontSize="{DynamicResource ApplicationFontSize}"
+        Icon="../Resources/Icon.ico">
+    <Grid x:Name="LayoutRoot"
+          IsEnabled="{Binding BackgroundWorkerService.IsBusy, Converter={StaticResource BooleanComplementConverter}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="DialogTitle"
+                   Margin="10,0,0,8"
+                   TextWrapping="Wrap"
+                   Text="login"
+                   VerticalAlignment="Top"
+                   FontSize="36"
+                   FontFamily="Segoe WP Light"
+                   d:LayoutOverrides="Width"
+                   HorizontalAlignment="Left" />
+        <Image x:Name="MantisLogo"
+               Source="Resources/Icon.png"
+               Stretch="Fill"
+               Width="40"
+               HorizontalAlignment="Right"
+               Margin="0,8,8,8"
+               Height="40" />
+        <Rectangle x:Name="Separator1"
+                   Grid.Row="1"
+                   Style="{StaticResource SeparatorStyle}" />
+        <StackPanel x:Name="FormPanel"
+                    Grid.Row="2"
+                    Margin="8,0">
+            <TextBox x:Name="MantisConnectTextBox"
+                     Style="{DynamicResource FormTextBoxStyle}"
+                     local:DesignExtensions.Title="Mantis Connect URL"
+                     local:DesignExtensions.IsRequired="True" />
+            <TextBox x:Name="MantisUsernameTextBox"
+                     Style="{DynamicResource FormTextBoxStyle}"
+                     local:DesignExtensions.Title="Mantis Username"
+                     local:DesignExtensions.IsRequired="True" />
+            <PasswordBox x:Name="MantisPasswordTextBox"
+                         Style="{DynamicResource FormPasswordBoxStyle}"
+                         local:DesignExtensions.Title="Mantis Password"
+                         local:DesignExtensions.IsRequired="True" />
+            <TextBox x:Name="HttpAuthUsernameTextBox"
+                     Style="{DynamicResource FormTextBoxStyle}"
+                     local:DesignExtensions.Title="Http Authentication Username" />
+            <PasswordBox x:Name="HttpAuthPasswordTextBox"
+                         Style="{DynamicResource FormPasswordBoxStyle}"
+                         local:DesignExtensions.Title="Http Authentication Password" />
+        </StackPanel>
+        <Rectangle Grid.Row="3"
+                   Style="{StaticResource SeparatorStyle}" />
+
+        <controls:BackgroundWorkerProgress HorizontalAlignment="Left"
+                                           Margin="8,0,0,0"
+                                           Grid.Row="4"
+                                           VerticalAlignment="Center" />
+        <Button x:Name="LoginButton"
+                Grid.Row="4"
+                HorizontalAlignment="Right"
+                Margin="0,8,8,8"
+                VerticalAlignment="Center"
+                Click="LoginButton_Click">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Login"
+                           VerticalAlignment="Center" />
+                <Path Data="{StaticResource SubmitIcon}"
+                      Stretch="Fill"
+                      Fill="{StaticResource DarkMantisBrush}"
+                      Width="10"
+                      Height="9"
+                      Margin="5,0,0,0" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

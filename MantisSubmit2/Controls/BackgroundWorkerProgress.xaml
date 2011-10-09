@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="MantisSubmit2.Controls.BackgroundWorkerProgress"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:MantisSubmit2.Controls"
+             mc:Ignorable="d"
+             d:DesignWidth="300"
+             d:DesignHeight="300">
+
+    <StackPanel x:Name="LayoutRoot"
+                Orientation="Horizontal">
+        <controls:LoadingIndicator IsLoading="{Binding BackgroundWorkerService.IsBusy}" />
+        <TextBlock Text="{Binding BackgroundWorkerService.CurrentTaskName}"
+                   Margin="4,0,0,0"
+                   FontSize="13"
+                   VerticalAlignment="Center" />
+    </StackPanel>
+</UserControl>
